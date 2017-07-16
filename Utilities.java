@@ -11,6 +11,14 @@ import robocode.AdvancedRobot;
 			return r + 2.0 * Math.PI;
 		return r;
 	}
+	
+	public static double lateralVelocity(Enemy e, AdvancedRobot me) {
+		return e.velocity * Math.sin(e.heading - e.bearing + me.getHeadingRadians());
+	}
+	
+	public static double limit(double x, double l, double r) {
+		return Math.min(r, Math.max(l, x));
+	}
 }
 
 /*package*/ class Enemy {
